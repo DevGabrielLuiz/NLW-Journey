@@ -1,7 +1,7 @@
-from flask import jsonifys, Blueprint
+from flask import jsonify, Blueprint, request
 
 trips_routes_bp = Blueprint("trip_routes",__name__)
 
-@trips_routes_bp.route("/trips", methods=["POST"] )# deixa mais intuitivo sobre o que é cada rota
+@trips_routes_bp.route("/trips",methods=["POST"])
 def create_trip():
-    return jsonifys({'olá':'mundo'}), 200
+    return jsonify({'olá':'mundo'}), 200
