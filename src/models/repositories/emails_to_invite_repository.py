@@ -26,6 +26,6 @@ class EmailsToInviteRepository:
         cursor.execute(
             '''SELECT * FROM emails_to_invite WHERE trip_id = ?''', (trip_id,)
         )
-        trip = cursor.fetchall() # "fetchone" pega um unico elemento, "fetchall" e "fetchmany" pegam mais de um 
-        return trip
+        emails = cursor.fetchall() # "fetchone" pega um unico elemento, "fetchall" e "fetchmany" pegam mais de um 
+        return emails
    
