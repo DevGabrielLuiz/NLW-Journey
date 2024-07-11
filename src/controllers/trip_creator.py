@@ -6,7 +6,7 @@ class TripCreator:
         self.__trip_repository = trip_repository
         self.__emails_repository = emails_repository
         
-    def create(self, body) ->Dict:
+    def create(self, body) -> dict:
         try:  
             emails = body.get("emails_to_invite")
             
@@ -20,10 +20,10 @@ class TripCreator:
                         "trip_id": trip_id,
                         "id": str(uuid.uuid4())
                     })
-                return {
-                    "body": { 'id': trip_id },
-                    "status_code": 201   # em http "201" signifca criado
-                }
+            return {
+                "body": { 'id': trip_id },
+                "status_code": 201   # em http "201" signifca criado
+            }
         except Exception as exception:
             return{
                 "body": {"error": "Bad Request", "message": str(exception)},

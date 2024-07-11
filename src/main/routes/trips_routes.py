@@ -21,4 +21,4 @@ def create_trip():
     
     response = controller.create(request.json)
     
-    return jsonify(response['body']), response['status_code']
+    return jsonify(response['body'], response['status_code'])
