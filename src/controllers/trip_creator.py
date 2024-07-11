@@ -7,4 +7,26 @@ class TripCreator:
         self.__emails_repository = emails_repository
         
     def create(self, body) ->Dict:
-        emails = body.get("emails_to_invite")
+        try:  
+            emails = body.get("emails_to_invite")
+            
+            trip_id = str(uuid.uuid4())
+            trip_infos = { **body, "id": trip_id}# os dois asteriscos subescrevem o o elemento 'body' dentro do outro dicionario
+            self.__trip_repository.create_trip(trip_infos)  # cria um registro
+            if emails:
+                for email in emails:
+                    self.__emails_repository.registry_email({
+                        "email": email,
+                        "trip_id": trip_id,
+                        "id": str(uuid.uuid4())
+                    })
+                return {
+                    "body": { 'id': trip_id },
+                    "status_code": 201   # em http "201" signifca criado
+                }
+        except Exception as exception:
+            return{
+                "body": {"error": "Bad Request", "message": str(exception)},
+                "status_code": 400
+            }
+       
