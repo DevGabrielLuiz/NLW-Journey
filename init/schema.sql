@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS 'trips' (
     end_date DATETIME,
     owner_name TEXT NOT NULL,
     owner_email TEXT NOT NULL,
-    status INTEGER -- 1 paea verdadeiro 0 para falso    
+    status INTEGER -- 1 para verdadeiro 0 para falso    
 );
 
 CREATE TABLE IF NOT EXISTS 'emails_to_invite' (

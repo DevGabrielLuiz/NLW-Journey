@@ -1,6 +1,6 @@
 from typing import Dict, Tuple
 from sqlite3 import Connection
-class TrypsRepository:
+class TripsRepository:
     def __init__(self, conn: Connection) -> None:
         self.__conn = conn    # armazena a conexão
         
@@ -34,7 +34,7 @@ class TrypsRepository:
         cursor.execute(
             ''' 
                 UPDATE trips
-                    SET status = 0
+                    SET status = 1
                 WHERE
                     id = ?    
             ''', (trip_id,)
