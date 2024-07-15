@@ -6,9 +6,9 @@ class ParticipantCreator:
         self.__participants_repository = participants_repository
         self.__emails_repository = emails_repository
         
-    def create(self, body, trip_id) -> Dict:
+    def create(self, body, trip_id) -> dict:
         try:
-            participants_id = str(uuid.uuid4())
+            participant_id = str(uuid.uuid4())
             email_id = str(uuid.uuid4())
             
             emails_infos = {
@@ -17,17 +17,17 @@ class ParticipantCreator:
                 "trip_id": trip_id
             }
             
-            participants_infos = {
-                "id": participants_id,
+            participant_infos = {
+                "id": participant_id,
                 "trip_id": trip_id,
                 "emails_to_invite_id": email_id,
                 "name": body["name"]
             }
             self.__emails_repository.registry_email(emails_infos)
-            self.__participants_repository.registry_participant(participants_infos)        
+            self.__participants_repository.registry_participant(participant_infos)        
 
             return {
-                "body": { "participants_id": participants_id},
+                "body": { "participant_id": participant_id},
                 "status_code": 201
             }
         except Exception as exception:

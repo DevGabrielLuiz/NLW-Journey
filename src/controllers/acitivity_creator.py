@@ -12,12 +12,12 @@ class ActivityCreator:
                 "id": id,
                 "trip_id": trip_id,
                 "title": body["title"],
-                "ocurrs_at": body["ocurrs_at"]
+                "occurs_at": body["occurs_at"]
             }
             self.__activities_repository.registry_activitie(activities_infos)        
 
             return {
-                "body": { "activitiesId": id},
+                "body": { "activityId": id},
                 "status_code": 201
             }
         except Exception as exception:

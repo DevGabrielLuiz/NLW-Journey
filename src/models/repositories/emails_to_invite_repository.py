@@ -5,11 +5,12 @@ class EmailsToInviteRepository:
     def __init__(self, conn: Connection) -> None:
         self.__conn = conn
 
-    def registry_email(self, email_info: dict) -> None:
+    def registry_email(self, email_info: Dict) -> None:
         cursor = self.__conn.cursor()
         cursor.execute(
             '''
-            INSERT INTO emails_to_invite (id, trip_id, email)
+            INSERT INTO emails_to_invite 
+                (id, trip_id, email)
             VALUES (?, ?, ?)
             ''',
             (
