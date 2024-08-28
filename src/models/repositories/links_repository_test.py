@@ -1,5 +1,5 @@
 import uuid
-import pytest
+import pytest # type: ignore
 from src.models.settings.db_connection_handler import db_connection_handler
 from .links_repository import LinksRepository
 
@@ -29,5 +29,3 @@ def test_find_links_from_trip():
     
     assert isinstance(response, list)# esta verificando se a resposta é uma ...
     assert isinstance(response[0], tuple)
-    print()
-    print(response)

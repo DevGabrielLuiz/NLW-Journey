@@ -1,5 +1,5 @@
 import uuid
-import pytest
+import pytest #type: ignore
 from src.models.settings.db_connection_handler import db_connection_handler
 from .emails_to_invite_repository import EmailsToInviteRepository
 

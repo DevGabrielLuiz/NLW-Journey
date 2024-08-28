@@ -1,4 +1,4 @@
-import pytest
+import pytest # type: ignore
 import uuid
 from datetime import datetime, timedelta     # "timedelta" serve para adicionar e subtrair dias
 from .trips_repository import TripsRepository

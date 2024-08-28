@@ -1,5 +1,6 @@
 from typing import Dict, Tuple
 from sqlite3 import Connection
+
 class TripsRepository:
     def __init__(self, conn: Connection) -> None:
         self.__conn = conn    # armazena a conexão
@@ -29,6 +30,7 @@ class TripsRepository:
         )
         trip = cursor.fetchone() # "fetchone" pega um unico elemento, "fetchall" e "fetchmany" pegam mais de um 
         return trip
+    
     def update_trip_status(self, trip_id: str) -> None:
         cursor = self.__conn.cursor()
         cursor.execute(

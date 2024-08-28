@@ -13,6 +13,7 @@ from src.controllers.link_finder import LinkFinder
 from src.controllers.participant_creator import ParticipantCreator
 from src.controllers.participant_finder import ParticipantFinder
 from src.controllers.participant_confirmer import ParticipantConfirmer
+
 from src.controllers.acitivity_creator import ActivityCreator
 from src.controllers.activity_finder import ActivityFinder
 
